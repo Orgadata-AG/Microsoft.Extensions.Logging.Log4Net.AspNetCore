@@ -23,7 +23,7 @@ Original code proposal by @anuraj --&gt; https://dotnetthoughts.net/how-to-use-l
 		<Version>5.0.3</Version>
 		<AssemblyVersion>5.0.3.0</AssemblyVersion>
 		<FileVersion>5.0.3.0</FileVersion>
-		<SignAssembly>true</SignAssembly>
+		<SignAssembly>false</SignAssembly>
 		<AssemblyOriginatorKeyFile>Microsoft.Extensions.Logging.Log4Net.AspNetCoreKey.snk</AssemblyOriginatorKeyFile>
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
