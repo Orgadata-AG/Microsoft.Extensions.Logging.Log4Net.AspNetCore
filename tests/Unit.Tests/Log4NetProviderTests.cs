@@ -36,42 +36,6 @@ namespace Unit.Tests
         }
 
         [Fact]
-        public void WhenScopeFactoryIsNullOnProviderOptions_ThenDefaultLog4NetScopeFactoryIsUsed()
-        {
-            var options = new Log4NetProviderOptions
-            {
-                ScopeFactory = null
-            };
-
-            var sut = new Log4NetProvider(options);
-
-            var logger = sut.CreateLogger("test") as Log4NetLogger;
-
-            var internalOptions = GetInternalOptions(logger);
-            internalOptions.Should().NotBeNull();
-            internalOptions.ScopeFactory.Should().NotBeNull("Scope factory on logger's options should not be null.");
-        }
-
-        [Fact]
-        public void WhenScopeFactoryIsProvidedInProviderOptions_ThenLoggerUsesProvidedScopeFactory()
-        {
-            var expectedFactory = new Log4NetScopeFactory(new Log4NetScopeRegistry());
-            var options = new Log4NetProviderOptions
-            {
-                ScopeFactory = expectedFactory
-            };
-
-            var sut = new Log4NetProvider(options);
-            var logger = sut.CreateLogger("test") as Log4NetLogger;
-
-            var internalOptions = GetInternalOptions(logger);
-
-            internalOptions.Should().NotBeNull();
-            internalOptions.ScopeFactory.Should().NotBeNull("Scope factory on logger's options should not be null.")
-                                                 .And.Be(expectedFactory, "Scope factory on logger does not match factory from provider options.");
-        }
-
-        [Fact]
         public void WhenLoggingEventFactoryIsNullOnProviderOptions_ThenDefaultLog4NetLoggingEventFactoryIsUsed()
         {
             var options = new Log4NetProviderOptions

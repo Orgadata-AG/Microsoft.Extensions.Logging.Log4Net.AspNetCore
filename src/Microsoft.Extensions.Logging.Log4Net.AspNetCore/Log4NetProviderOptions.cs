@@ -77,11 +77,6 @@ namespace Microsoft.Extensions.Logging
         public bool Watch { get; set; }
 
         /// <summary>
-        /// Gets or sets the scope factory.
-        /// </summary>
-        public ILog4NetScopeFactory ScopeFactory { get; set; }
-
-        /// <summary>
         /// Let user setup log4net externally
         /// </summary>
         public bool ExternalConfigurationSetup { get; set; }
