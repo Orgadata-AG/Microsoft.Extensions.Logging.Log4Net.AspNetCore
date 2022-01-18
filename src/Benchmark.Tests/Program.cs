@@ -25,8 +25,8 @@ namespace Benchmark.Tests
         public class AllocatingVsNonAllocating
         {
             private IEnumerable<KeyValuePair<string, string>> _formattingParameters;
-            private AllocatingLog4NetLoggingEventFactory _allocatingFactory;
-            private Log4NetLoggingEventFactory _nonAllocatingFactory;
+            private Log4NetLoggingEventFactory _defaultFactory;
+            private CachedLog4NetLoggingEventFactory _cachedFactory;
             private log4net.Core.ILogger _logger;
             private Log4NetProviderOptions _providerOptions;
             private LoggerExternalScopeProvider _scopeProvider;
@@ -40,8 +40,8 @@ namespace Benchmark.Tests
                     new KeyValuePair<string, string>("key1", "value1")
                 };
 
-                _allocatingFactory = new AllocatingLog4NetLoggingEventFactory();
-                _nonAllocatingFactory = new Log4NetLoggingEventFactory();
+                _defaultFactory = new Log4NetLoggingEventFactory();
+                _cachedFactory = new CachedLog4NetLoggingEventFactory();
                 _logger = new NullLogger();
                 _providerOptions = new Log4NetProviderOptions
                 {
@@ -51,21 +51,7 @@ namespace Benchmark.Tests
             }
 
             [Benchmark(Baseline = true)]
-            public LoggingEvent Allocating()
-            {
-                var candidate = new AllocatingMessageCandidate<IEnumerable<KeyValuePair<string, string>>>(
-                    LogLevel.Critical,
-                    new EventId(5),
-                    _formattingParameters,
-                    null,
-                    (parameters, exception) => string.Join(" ", parameters.Select(p => p.Value))
-                );
-
-                return _allocatingFactory.CreateLoggingEvent(candidate, _logger, _providerOptions, _scopeProvider);
-            }
-
-            [Benchmark]
-            public LoggingEvent NonAllocating()
+            public LoggingEvent NormalCallStackBoundaryType()
             {
                 var candidate = new MessageCandidate<IEnumerable<KeyValuePair<string, string>>>(
                     LogLevel.Critical,
@@ -75,7 +61,21 @@ namespace Benchmark.Tests
                     (parameters, exception) => string.Join(" ", parameters.Select(p => p.Value))
                 );
 
-                return _nonAllocatingFactory.CreateLoggingEvent(in candidate, _logger, _providerOptions, _scopeProvider);
+                return _defaultFactory.CreateLoggingEvent(in candidate, _logger, _providerOptions, _scopeProvider);
+            }
+
+            [Benchmark]
+            public LoggingEvent CachedCallStackBoundaryType()
+            {
+                var candidate = new MessageCandidate<IEnumerable<KeyValuePair<string, string>>>(
+                    LogLevel.Critical,
+                    new EventId(5),
+                    _formattingParameters,
+                    null,
+                    (parameters, exception) => string.Join(" ", parameters.Select(p => p.Value))
+                );
+
+                return _cachedFactory.CreateLoggingEvent(in candidate, _logger, _providerOptions, _scopeProvider);
             }
         }
 

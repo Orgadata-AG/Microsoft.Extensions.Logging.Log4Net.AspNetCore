@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Benchmark.Tests.Program.AllocatingVsNonAllocating-20220118-144453</title>
+<title>Benchmark.Tests.Program.AllocatingVsNonAllocating-20220118-155341</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -30,26 +30,26 @@ Intel Core i7-8559U CPU 2.70GHz (Coffee Lake), 1 CPU, 8 logical and 4 physical c
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th> Method</th><th>           Job</th><th>       Runtime</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen 0</th><th>Allocated</th>
+<thead><tr><th>               Method</th><th>           Job</th><th>       Runtime</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen 0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>Allocating</td><td>.NET 5.0</td><td>.NET 5.0</td><td>401.9 ns</td><td>2.39 ns</td><td>2.00 ns</td><td>1.00</td><td>0.00</td><td>0.0782</td><td>328 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET 5.0</td><td>.NET 5.0</td><td>398.3 ns</td><td>2.03 ns</td><td>1.80 ns</td><td>0.99</td><td>0.01</td><td>0.0629</td><td>264 B</td>
-</tr><tr><td>Allocating</td><td>.NET 6.0</td><td>.NET 6.0</td><td>302.2 ns</td><td>3.11 ns</td><td>2.91 ns</td><td>1.00</td><td>0.00</td><td>0.0782</td><td>328 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET 6.0</td><td>.NET 6.0</td><td>299.2 ns</td><td>5.86 ns</td><td>6.27 ns</td><td>0.99</td><td>0.03</td><td>0.0629</td><td>264 B</td>
-</tr><tr><td>Allocating</td><td>.NET Core 3.1</td><td>.NET Core 3.1</td><td>490.8 ns</td><td>3.60 ns</td><td>3.01 ns</td><td>1.00</td><td>0.00</td><td>0.0782</td><td>328 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET Core 3.1</td><td>.NET Core 3.1</td><td>490.2 ns</td><td>3.17 ns</td><td>2.65 ns</td><td>1.00</td><td>0.01</td><td>0.0629</td><td>264 B</td>
-</tr><tr><td>Allocating</td><td>.NET Framework 4.6.1</td><td>.NET Framework 4.6.1</td><td>521.2 ns</td><td>4.38 ns</td><td>3.42 ns</td><td>1.00</td><td>0.00</td><td>0.0839</td><td>353 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET Framework 4.6.1</td><td>.NET Framework 4.6.1</td><td>516.7 ns</td><td>3.61 ns</td><td>3.01 ns</td><td>0.99</td><td>0.01</td><td>0.0687</td><td>289 B</td>
-</tr><tr><td>Allocating</td><td>.NET Framework 4.6.2</td><td>.NET Framework 4.6.2</td><td>515.3 ns</td><td>6.61 ns</td><td>6.19 ns</td><td>1.00</td><td>0.00</td><td>0.0839</td><td>353 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET Framework 4.6.2</td><td>.NET Framework 4.6.2</td><td>514.3 ns</td><td>3.02 ns</td><td>2.52 ns</td><td>1.00</td><td>0.01</td><td>0.0687</td><td>289 B</td>
-</tr><tr><td>Allocating</td><td>.NET Framework 4.7</td><td>.NET Framework 4.7</td><td>515.3 ns</td><td>1.28 ns</td><td>1.00 ns</td><td>1.00</td><td>0.00</td><td>0.0839</td><td>353 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET Framework 4.7</td><td>.NET Framework 4.7</td><td>513.7 ns</td><td>1.82 ns</td><td>1.42 ns</td><td>1.00</td><td>0.00</td><td>0.0687</td><td>289 B</td>
-</tr><tr><td>Allocating</td><td>.NET Framework 4.7.1</td><td>.NET Framework 4.7.1</td><td>520.1 ns</td><td>5.52 ns</td><td>4.89 ns</td><td>1.00</td><td>0.00</td><td>0.0839</td><td>353 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET Framework 4.7.1</td><td>.NET Framework 4.7.1</td><td>516.8 ns</td><td>4.68 ns</td><td>3.90 ns</td><td>0.99</td><td>0.01</td><td>0.0687</td><td>289 B</td>
-</tr><tr><td>Allocating</td><td>.NET Framework 4.7.2</td><td>.NET Framework 4.7.2</td><td>522.2 ns</td><td>9.93 ns</td><td>8.29 ns</td><td>1.00</td><td>0.00</td><td>0.0839</td><td>353 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET Framework 4.7.2</td><td>.NET Framework 4.7.2</td><td>517.6 ns</td><td>1.60 ns</td><td>1.34 ns</td><td>0.99</td><td>0.01</td><td>0.0687</td><td>289 B</td>
-</tr><tr><td>Allocating</td><td>.NET Framework 4.8</td><td>.NET Framework 4.8</td><td>522.9 ns</td><td>1.33 ns</td><td>1.11 ns</td><td>1.00</td><td>0.00</td><td>0.0839</td><td>353 B</td>
-</tr><tr><td>NonAllocating</td><td>.NET Framework 4.8</td><td>.NET Framework 4.8</td><td>516.7 ns</td><td>0.86 ns</td><td>0.67 ns</td><td>0.99</td><td>0.00</td><td>0.0687</td><td>289 B</td>
+</thead><tbody><tr><td>NormalCallStackBoundaryType</td><td>.NET 5.0</td><td>.NET 5.0</td><td>395.7 ns</td><td>4.46 ns</td><td>3.95 ns</td><td>1.00</td><td>0.00</td><td>0.0629</td><td>264 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET 5.0</td><td>.NET 5.0</td><td>402.0 ns</td><td>3.72 ns</td><td>3.30 ns</td><td>1.02</td><td>0.01</td><td>0.0629</td><td>264 B</td>
+</tr><tr><td>NormalCallStackBoundaryType</td><td>.NET 6.0</td><td>.NET 6.0</td><td>294.4 ns</td><td>1.90 ns</td><td>1.77 ns</td><td>1.00</td><td>0.00</td><td>0.0629</td><td>264 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET 6.0</td><td>.NET 6.0</td><td>291.4 ns</td><td>3.32 ns</td><td>2.59 ns</td><td>0.99</td><td>0.01</td><td>0.0629</td><td>264 B</td>
+</tr><tr><td>NormalCallStackBoundaryType</td><td>.NET Core 3.1</td><td>.NET Core 3.1</td><td>513.5 ns</td><td>5.74 ns</td><td>5.37 ns</td><td>1.00</td><td>0.00</td><td>0.0629</td><td>264 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET Core 3.1</td><td>.NET Core 3.1</td><td>498.3 ns</td><td>4.95 ns</td><td>3.86 ns</td><td>0.97</td><td>0.01</td><td>0.0629</td><td>264 B</td>
+</tr><tr><td>NormalCallStackBoundaryType</td><td>.NET Framework 4.6.1</td><td>.NET Framework 4.6.1</td><td>526.5 ns</td><td>8.59 ns</td><td>8.03 ns</td><td>1.00</td><td>0.00</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET Framework 4.6.1</td><td>.NET Framework 4.6.1</td><td>533.9 ns</td><td>5.93 ns</td><td>5.26 ns</td><td>1.01</td><td>0.02</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>NormalCallStackBoundaryType</td><td>.NET Framework 4.6.2</td><td>.NET Framework 4.6.2</td><td>527.8 ns</td><td>7.99 ns</td><td>7.09 ns</td><td>1.00</td><td>0.00</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET Framework 4.6.2</td><td>.NET Framework 4.6.2</td><td>529.5 ns</td><td>5.08 ns</td><td>4.51 ns</td><td>1.00</td><td>0.02</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>NormalCallStackBoundaryType</td><td>.NET Framework 4.7</td><td>.NET Framework 4.7</td><td>531.4 ns</td><td>6.13 ns</td><td>5.74 ns</td><td>1.00</td><td>0.00</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET Framework 4.7</td><td>.NET Framework 4.7</td><td>531.4 ns</td><td>4.63 ns</td><td>4.10 ns</td><td>1.00</td><td>0.01</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>NormalCallStackBoundaryType</td><td>.NET Framework 4.7.1</td><td>.NET Framework 4.7.1</td><td>522.4 ns</td><td>5.03 ns</td><td>4.46 ns</td><td>1.00</td><td>0.00</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET Framework 4.7.1</td><td>.NET Framework 4.7.1</td><td>527.6 ns</td><td>8.42 ns</td><td>7.88 ns</td><td>1.01</td><td>0.02</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>NormalCallStackBoundaryType</td><td>.NET Framework 4.7.2</td><td>.NET Framework 4.7.2</td><td>523.1 ns</td><td>4.22 ns</td><td>3.74 ns</td><td>1.00</td><td>0.00</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET Framework 4.7.2</td><td>.NET Framework 4.7.2</td><td>523.5 ns</td><td>8.39 ns</td><td>7.85 ns</td><td>1.00</td><td>0.02</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>NormalCallStackBoundaryType</td><td>.NET Framework 4.8</td><td>.NET Framework 4.8</td><td>531.0 ns</td><td>10.19 ns</td><td>9.53 ns</td><td>1.00</td><td>0.00</td><td>0.0687</td><td>289 B</td>
+</tr><tr><td>CachedCallStackBoundaryType</td><td>.NET Framework 4.8</td><td>.NET Framework 4.8</td><td>524.4 ns</td><td>7.76 ns</td><td>6.88 ns</td><td>0.99</td><td>0.02</td><td>0.0687</td><td>289 B</td>
 </tr></tbody></table>
 </body>
 </html>
