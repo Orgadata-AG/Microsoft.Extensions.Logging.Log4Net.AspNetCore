@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Microsoft.Extensions.Logging
 {
     /// <inheritdoc cref="ILog4NetLoggingEventFactory"/>
-    public sealed class CachedLog4NetLoggingEventFactory
+    public class VirtualLog4NetLoggingEventFactory
         : ILog4NetLoggingEventFactory
     {
         private readonly Type callerStackBoundaryDeclaringType = typeof(LoggerExtensions);
@@ -34,7 +34,7 @@ namespace Microsoft.Extensions.Logging
             return loggingEvent;
         }
 
-        private static void EnrichWithScopes(LoggingEvent loggingEvent, IExternalScopeProvider scopeProvider)
+        protected virtual void EnrichWithScopes(LoggingEvent loggingEvent, IExternalScopeProvider scopeProvider)
         {
             scopeProvider.ForEachScope((scope, @event) =>
             {

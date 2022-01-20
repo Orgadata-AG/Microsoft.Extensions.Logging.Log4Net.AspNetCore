@@ -26,7 +26,7 @@ namespace Benchmark.Tests
         {
             private IEnumerable<KeyValuePair<string, string>> _formattingParameters;
             private Log4NetLoggingEventFactory _defaultFactory;
-            private CachedLog4NetLoggingEventFactory _cachedFactory;
+            private VirtualLog4NetLoggingEventFactory _virtualFactory;
             private log4net.Core.ILogger _logger;
             private Log4NetProviderOptions _providerOptions;
             private LoggerExternalScopeProvider _scopeProvider;
@@ -41,7 +41,7 @@ namespace Benchmark.Tests
                 };
 
                 _defaultFactory = new Log4NetLoggingEventFactory();
-                _cachedFactory = new CachedLog4NetLoggingEventFactory();
+                _virtualFactory = new VirtualLog4NetLoggingEventFactory();
                 _logger = new NullLogger();
                 _providerOptions = new Log4NetProviderOptions
                 {
@@ -75,7 +75,7 @@ namespace Benchmark.Tests
                     (parameters, exception) => string.Join(" ", parameters.Select(p => p.Value))
                 );
 
-                return _cachedFactory.CreateLoggingEvent(in candidate, _logger, _providerOptions, _scopeProvider);
+                return _virtualFactory.CreateLoggingEvent(in candidate, _logger, _providerOptions, _scopeProvider);
             }
         }
 
